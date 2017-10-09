@@ -18,14 +18,14 @@ default: &default
   adapter: postgresql
   encoding: unicode
   timeout: 5000
-  username: prasanna
-  password: prasanna
   # For details on connection pooling, see Rails configuration guide
   # http://guides.rubyonrails.org/configuring.html#database-pooling
   pool: 5
 
 development:
   <<: *default
+  username: prasanna
+  password: prasanna
   database: sample_oauth_development
 
   # The specified database role being used to connect to postgres.
@@ -83,6 +83,5 @@ test:
 #
 production:
   <<: *default
-  database: sample_oauth_production
-  username: sample_oauth
-  password: <%= ENV['SAMPLE_OAUTH_DATABASE_PASSWORD'] %>
+  adapter: postgresql
+  database: db/production.sqlite3
