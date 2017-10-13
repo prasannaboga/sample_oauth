@@ -1,14 +1,16 @@
 module Api
   class BaseController < ApplicationController
 
+    skip_before_action :verify_authenticity_token
     before_action :authenticate_user!
 
+
     rescue_from ActiveRecord::RecordNotFound do |e|
-      render json: errors_json(e.message), status: :not_found
+      render_record_error(e.message, :not_found)
     end
 
     def doorkeeper_unauthorized_render_options(error: nil)
-      {json: {error: 'Not authorized'}}
+      render_error('User is not authenticated!', :unauthorized)
     end
 
     private
@@ -20,15 +22,25 @@ module Api
 
       return if current_user
 
-      render json: {errors: ['User is not authenticated!']}, status: :unauthorized
+      render_error('User is not authenticated!', :unauthorized)
     end
 
     def current_user
       Thread.current[:current_user]
     end
 
-    def errors_json(messages)
-      {errors: [*messages]}
+    def render_unprocessable_entity(record)
+      render_record_error(record, :unprocessable_entity)
+    end
+
+    def render_record_error(record, status_sym)
+      render_error(record.errors.full_messages, status_sym)
+    end
+
+    def render_error(obj, st_sym)
+      error_messages = obj.is_a?(Array) ? obj : [obj.to_s]
+      logger.error(error_messages)
+      render json: {errors: error_messages}, status: st_sym
     end
   end
 end
