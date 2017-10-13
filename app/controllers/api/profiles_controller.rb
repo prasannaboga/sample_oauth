@@ -12,7 +12,7 @@ class Api::ProfilesController < Api::BaseController
                      dob: Faker::Date.birthday(18, 65),
                      location: Faker::Address.city}
     if @profile.update(update_params)
-      head :no_content
+      render_success()
     else
       render_unprocessable_entity(@profile)
     end

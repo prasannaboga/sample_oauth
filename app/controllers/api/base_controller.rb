@@ -29,6 +29,14 @@ module Api
       Thread.current[:current_user]
     end
 
+    def render_success(obj = {})
+      response = {success: true}
+      if !obj.empty?
+        response.merge!(obj)
+      end
+      render json: response
+    end
+
     def render_unprocessable_entity(record)
       render_record_error(record, :unprocessable_entity)
     end
