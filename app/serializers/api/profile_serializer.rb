@@ -5,5 +5,16 @@ class Api::ProfileSerializer < ActiveModel::Serializer
              :first_name,
              :last_name,
              :dob,
-             :location
+             :location,
+             :small_avatar,
+             :large_avatar
+
+  def small_avatar
+    object.avatar('720x480')
+  end
+
+  def large_avatar
+    object.avatar('1200x800')
+  end
+
 end
