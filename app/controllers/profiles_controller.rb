@@ -4,12 +4,26 @@ class ProfilesController < ApplicationController
   before_action :set_profile
 
   def show
-    @profile_nav_link_class = 'active'
+
   end
 
   def edit
-    @profile_nav_link_class = 'active'
+
   end
+
+  def update
+    update_params = {first_name: Faker::Name.first_name,
+                     last_name: Faker::Name.last_name,
+                     dob: Faker::Date.birthday(18, 65),
+                     location: Faker::Address.city}
+    if @profile.update(update_params)
+      render_success()
+    else
+      render_unprocessable_entity(@profile)
+    end
+  end
+
+  private
 
   def set_profile
     @profile = current_user.profile

@@ -1,0 +1,21 @@
+.row
+  .col-lg-12
+    .so-component
+      .modal
+        .modal-dialog
+          .modal-content
+            .modal-header
+              %h3.modal-title Profile
+            .modal-body
+              .profile-details.clearfix
+                .thumbnail.pull-left
+                  %img{src: image_url(@profile.avatar)}
+                .details
+                  %h3
+                    = @profile.name
+                  %h4
+                    = @profile.dob.in_time_zone.to_formatted_s(:dob_mdy)
+                  %h4
+                    = @profile.location
+            .modal-footer
+              = link_to('Update', profile_path, method: :put, remote: true, class: 'profile-link-delete btn btn-warning')
