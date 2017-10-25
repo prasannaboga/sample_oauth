@@ -11,7 +11,7 @@ class AdminController < ApplicationController
 
   def authenticate_admin!
     unless (1..3).include?(current_user.id)
-      flash[:alert] = 'Your not admin!'
+      flash[:alert] = 'You are not admin!'
       redirect_to root_path
     end
   end

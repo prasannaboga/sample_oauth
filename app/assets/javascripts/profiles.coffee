@@ -1,4 +1,4 @@
 $(document).ready ->
-  $('.profile-link-delete').bind 'ajax:complete', ->
+  $('#profile-update-link').bind 'ajax:complete', ->
     window.location.reload()
     return

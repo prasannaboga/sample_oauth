@@ -18,4 +18,4 @@
                   %h4
                     = @profile.location
             .modal-footer
-              = link_to('Update', profile_path, method: :put, remote: true, class: 'profile-link-delete btn btn-warning')
+              = link_to('Update', profile_path, method: :put, remote: true, id: 'profile-update-link', class: 'btn btn-warning')
