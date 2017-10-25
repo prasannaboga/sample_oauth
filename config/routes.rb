@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   resource :home, controller: :home
   resource :profile, except: [:new, :destroy]
+  resource :admin, controller: :admin
 
   root to: 'home#index'
 end

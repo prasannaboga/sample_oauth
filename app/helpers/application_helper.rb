@@ -12,13 +12,13 @@ module ApplicationHelper
         end)
         case
           when bootstrap_class_for(msg_type) == "alert-success"
-            concat content_tag(:span, '<i class="fa fa-check-circle"></i>'.html_safe, 'aria-hidden' => true)
+            #concat content_tag(:span, '<i class="fa fa-check-circle"></i>'.html_safe, 'aria-hidden' => true)
           when bootstrap_class_for(msg_type) == ("alert-danger" || "alert-warning")
-            concat content_tag(:span, '<i class="fa fa-times-circle"></i>'.html_safe, 'aria-hidden' => true)
+            #concat content_tag(:span, '<i class="fa fa-times-circle"></i>'.html_safe, 'aria-hidden' => true)
           else
-            concat content_tag(:span, '<i class="fa fa-info-circle"></i>'.html_safe, 'aria-hidden' => true)
+            #concat content_tag(:span, '<i class="fa fa-info-circle"></i>'.html_safe, 'aria-hidden' => true)
         end
-        concat ' ' + message
+        concat '' + message
       end)
     end
     nil

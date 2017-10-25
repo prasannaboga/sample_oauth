@@ -39,6 +39,10 @@ class User < ApplicationRecord
 
   accepts_nested_attributes_for :profile
 
+  def is_admin?
+    (1..3).include?(id)
+  end
+
   def create_profile
     self.build_profile({first_name: Faker::Name.first_name,
                         last_name: Faker::Name.last_name,
