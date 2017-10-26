@@ -1,0 +1,8 @@
+/ Global site tag (gtag.js) - Google Analytics
+%script{async: '', src: 'https://www.googletagmanager.com/gtag/js?id=UA-108707566-1'}
+:javascript
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-108707566-1');
+  gtag('set', {'user_id': "#{current_user.andand.id}"}); // Set the user ID using signed-in user_id.
