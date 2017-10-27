@@ -26,6 +26,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'haml-rails', '~> 1.0'
 gem 'annotate'
 gem 'graphql'
+gem 'simple_form'
 
 group :development do
   gem 'brakeman', require: false
