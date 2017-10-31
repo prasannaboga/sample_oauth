@@ -1,0 +1,18 @@
+!!!
+%html
+  %head
+    %meta{content: 'text/html; charset=UTF-8', 'http-equiv': 'Content-Type'}
+    = display_meta_tags site: 'SampleOauth'
+    = csrf_meta_tags
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    = render 'layouts/gtag'
+  %body
+    = render 'layouts/nav_bar'
+    .container
+      = flash_messages
+      = yield
+    %footer
+      #theme-credits
+        Bootstrap theme
+        %a{href: 'https://bootswatch.com/', target: '_blank'} bootswatch.com
