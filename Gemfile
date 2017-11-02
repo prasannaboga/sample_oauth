@@ -29,6 +29,7 @@ gem 'simple_form'
 gem 'turbolinks', '~> 5'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'uglifier', '>= 1.3.0'
+gem 'sitemap_generator'
 
 group :development do
   gem 'brakeman', require: false
