@@ -1,11 +1,9 @@
 class HomeController < ApplicationController
 
   def index
-    set_meta_tags(title: 'Home',
-                  keywords: 'Home',
-                  description: 'This is home page',
-                  reverse: true,
-                  separator: '&middot;'.html_safe)
+    page_meta_tags(title: 'Home',
+                   keywords: 'Home Page, Sample, Example, Oauth, Doorkeeper',
+                   description: 'This is home page')
   end
 
   def show
