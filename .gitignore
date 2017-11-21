@@ -22,6 +22,3 @@
 
 # Ignore application configuration
 /config/application.yml
-
-/public/sitemap.xml.gz
-/public/sitemap.xml

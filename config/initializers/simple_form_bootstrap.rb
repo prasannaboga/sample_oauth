@@ -1,7 +1,7 @@
 # Use this setup block to configure all options available in SimpleForm.
 SimpleForm.setup do |config|
   config.label_class = 'control-label'
-  config.form_class = 'simple_form form-horizontal'
+  config.default_form_class = 'simple_form form-horizontal'
   config.error_notification_class = 'alert alert-danger'
   config.button_class = 'btn btn-primary'
   config.boolean_label_class = nil

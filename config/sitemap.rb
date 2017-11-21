@@ -2,8 +2,8 @@
 SitemapGenerator::Sitemap.default_host = 'https://glacial-retreat-51710.herokuapp.com'
 
 SitemapGenerator::Sitemap.create do
-  add new_user_registration_path, priority: 0.7, changefreq: 'daily'
-  add new_user_session_path,      priority: 0.7, changefreq: 'daily'
+  add new_user_registration_path, priority: 0.7, changefreq: 'weekly'
+  add new_user_session_path,      priority: 0.7, changefreq: 'weekly'
   add new_user_password_path,     priority: 0.7, changefreq: 'weekly'
   # Put links creation logic here.
   #
@@ -22,9 +22,9 @@ SitemapGenerator::Sitemap.create do
   #
   #   add articles_path, :priority => 0.7, :changefreq => 'daily'
   #
-  # Add all articles:
+  # Add all profiles:
   #
-  #   Article.find_each do |article|
-  #     add article_path(article), :lastmod => article.updated_at
-  #   end
+  Profile.find_each do |profile|
+    add public_profile_path(profile.friendly_id.downcase), lastmod: profile.updated_at, priority: 0.6, changefreq: 'weekly'
+  end
 end

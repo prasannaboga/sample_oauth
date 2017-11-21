@@ -1,7 +1,7 @@
 class ProfilesController < ApplicationController
 
   before_action :authenticate_user!
-  before_action :set_profile
+  before_action :set_profile, except: [:public_profile]
 
   def show
 
@@ -21,6 +21,14 @@ class ProfilesController < ApplicationController
     else
       render_unprocessable_entity(@profile)
     end
+  end
+
+  def public_profile
+    profile_id = params[:friendly_id].split('-')
+    @profile = Profile.find_by(id: profile_id)
+    page_meta_tags(title: @profile.name + '\'s Profile',
+                   keywords: "#{@profile.name}, #{@profile.location}, #{@profile.dob.in_time_zone.to_formatted_s(:dob_mdy)}",
+                   description: "#{@profile.name}, #{@profile.location}, #{@profile.dob.in_time_zone.to_formatted_s(:dob_mdy)}")
   end
 
   private

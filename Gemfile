@@ -16,6 +16,7 @@ gem 'faker'
 gem 'figaro'
 gem 'graphql'
 gem 'haml-rails', '~> 1.0'
+gem 'httparty'
 gem 'jbuilder', '~> 2.5'
 gem 'meta-tags'
 gem 'oauth2'
@@ -26,10 +27,10 @@ gem 'rails', '~> 5.1.4'
 gem 'redis', '~> 3.0'
 gem 'sass-rails', '~> 5.0'
 gem 'simple_form'
+gem 'sitemap_generator'
 gem 'turbolinks', '~> 5'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'uglifier', '>= 1.3.0'
-gem 'sitemap_generator'
 
 group :development do
   gem 'brakeman', require: false

@@ -21,7 +21,9 @@ Rails.application.routes.draw do
   end
 
   resource :home, controller: :home
-  resource :profile, except: [:new, :destroy]
+  resource :profile, except: [:new, :destroy] do
+    get 'public/:friendly_id', action: :public_profile, as: :public
+  end
   resource :admin, controller: :admin
 
   root to: 'home#index'

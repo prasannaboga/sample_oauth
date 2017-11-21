@@ -24,7 +24,7 @@
             %td
               = user.id
             %td
-              = user.name
+              = link_to user.name, public_profile_path(user.profile.friendly_id.downcase)
             %td
               = user.profile.dob.in_time_zone.to_formatted_s(:dob_mdy)
             %td
