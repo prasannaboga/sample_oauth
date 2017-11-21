@@ -2,6 +2,7 @@ class ProfilesController < ApplicationController
 
   before_action :authenticate_user!
   before_action :set_profile, except: [:public_profile]
+  skip_before_action :authenticate_user!, only: [:public_profile]
 
   def show
 
