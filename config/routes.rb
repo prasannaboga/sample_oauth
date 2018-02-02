@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   if Rails.env.development?
     mount GraphiQL::Rails::Engine, at: '/graphiql', graphql_path: '/graphql'
   end
+  mount Logs::Engine => '/logs'
 
   post '/graphql', to: 'graphql#execute'
   use_doorkeeper
@@ -20,6 +21,11 @@ Rails.application.routes.draw do
     resources :users
   end
 
+  resources :webhooks do
+    collection do
+      post :github
+    end
+  end
   resource :home, controller: :home
   resource :profile, except: [:new, :destroy] do
     get 'public/:friendly_id', action: :public_profile, as: :public
