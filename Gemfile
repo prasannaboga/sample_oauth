@@ -31,7 +31,7 @@ gem 'sitemap_generator'
 gem 'turbolinks', '~> 5'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'uglifier', '>= 1.3.0'
-gem 'logs'
+
 
 group :development do
   gem 'brakeman', require: false
@@ -40,6 +40,7 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'web-console', '>= 3.3.0'
+  gem 'logs'
 end
 
 group :development, :test do
