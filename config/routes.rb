@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   if Rails.env.development?
     mount GraphiQL::Rails::Engine, at: '/graphiql', graphql_path: '/graphql'
+    mount Logs::Engine => '/logs'
   end
-  mount Logs::Engine => '/logs'
 
   post '/graphql', to: 'graphql#execute'
   use_doorkeeper

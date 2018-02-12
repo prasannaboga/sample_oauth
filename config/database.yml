@@ -22,11 +22,18 @@ default: &default
   # http://guides.rubyonrails.org/configuring.html#database-pooling
   pool: 5
 
-development:
+developmentx:
   <<: *default
   username: prasanna
   password: prasanna
   database: sample_oauth_development
+
+development:
+  adapter: postgresql
+  username: qamardgettudrk
+  password: 1f782ef2f163351b47c85281cfb96d9820df2ffe5a1dc11677ab794e983e5c33
+  url: <%= ENV['DATABASE_URL'] %>
+
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
